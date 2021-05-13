@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW6_Objects</title>
+</head>
+<body>
+    
+    <script>
+
+        var user = {
+            name: "Serhii",
+            surname: 'Romanenko',
+            city: 'Odesa',
+            bday: 1991,
+        };
+
+        //------------------------------1st------------------------------//
+        
+        function cloneObj(obj) {
+            var newObject = {};
+            for(var key in obj) {
+                if(typeof(obj[key])==="object" && obj[key] != null)
+                    newObject[key] = cloneObj(obj[key]);
+                else
+                    newObject[key] = obj[key];
+            }
+            return newObject;
+        }
+
+        console.log(cloneObj(user));
+
+//------------------------------2nd------------------------------//
+
+        function getValues(obj, separator = '*') {
+            var str = '';
+            for (var key in obj) {
+                str += obj[key] + separator;
+            }
+            return str;
+        }
+
+        console.log(getValues(user, '*'));
+
+//------------------------------3rd------------------------------//
+
+        function getKeys(obj, separator = '_') {
+            var str = '';
+            for (var key in obj) {
+                str += key + separator;
+            }
+            return str;
+        }
+
+        console.log(getKeys(user, '_'));
+
+//------------------------------4th------------------------------//
+
+        function getEntries(obj) {
+            let str = '';
+            for (var key in obj) {
+                str += key + ': ' + obj[key] + '<br>';
+            }
+            return str;
+        }
+
+        document.write(getEntries(user));
+
+    </script>
+
+</body>
+</html>
