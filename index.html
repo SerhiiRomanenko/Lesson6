@@ -61,12 +61,12 @@
         function getEntries(obj) {
             let str = '';
             for (var key in obj) {
-                str += key + ': ' + obj[key] + '<br>';
+                str += key + ': ' + obj[key] + '\n';
             }
             return str;
         }
 
-        document.write(getEntries(user));
+        console.log(getEntries(user));
 
     </script>
 
